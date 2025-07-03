@@ -1,38 +1,49 @@
-# sv
+# Grocery Management Project
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Description
 
-## Creating a project
+This project is a grocery management application designed to help you plan meals throughout the year. It not only allows you to efficiently organize your meals but also calculates the total cost of the required groceries.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Key Features
 
-```bash
-# create a new project in the current directory
-npx sv create
+- **Annual Meal Planning**  
+  Organize your meals day by day, week by week, or month by month according to your preferences.
 
-# create a new project in my-app
-npx sv create my-app
-```
+- **Automatic Cost Calculation**  
+  Get an accurate estimate of the budget needed for groceries based on your meal plans.
 
-## Developing
+- **Optimized Shopping List Management**  
+  Create detailed shopping lists tailored to your planned menus.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Benefits
 
-```bash
-npm run dev
+- Save time by anticipating your meals for the whole year.
+- Control your food budget with clear cost tracking.
+- Optimize your purchases to avoid waste and better manage your inventory.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Installation
 
-## Building
+@TODO
 
-To create a production version of your app:
+## Usage
 
-```bash
-npm run build
-```
+@TODO
 
-You can preview the production build with `npm run preview`.
+## Technologies Used
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- TypeScript
+- Svelte
+- Drizzle ORM
+- TailwindCSS
+
+## Contribution
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0. See the LICENSE file for details.
+
+---
+
+Thank you for using this grocery management project to plan your meals and control your food budget!
