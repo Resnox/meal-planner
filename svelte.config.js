@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import 'dotenv/config';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,7 +14,9 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
 		alias: {
-			'$src/*': 'src/*'
+			'$src/*': 'src/*',
+			'$components/*': 'src/components/*',
+			'$db/*': 'src/lib/server/db/*'
 		}
 	}
 };

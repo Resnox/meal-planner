@@ -1,23 +1,23 @@
-import { boolean, int, mysqlTable, primaryKey, varchar } from 'drizzle-orm/mysql-core';
+import { boolean, integer, pgTable, primaryKey, text } from 'drizzle-orm/pg-core';
 import { users } from './user';
 
-export const authenticators = mysqlTable(
+export const authenticators = pgTable(
 	'authenticator',
 	{
-		credentialID: varchar('credentialID', { length: 255 }).notNull().unique(),
-		userId: varchar('userId', { length: 255 })
+		credentialID: text('credentialID').notNull().unique(),
+		userId: text('userId')
 			.notNull()
 			.references(() => users.id, { onDelete: 'cascade' }),
-		providerAccountId: varchar('providerAccountId', { length: 255 }).notNull(),
-		credentialPublicKey: varchar('credentialPublicKey', {
+		providerAccountId: text('providerAccountId').notNull(),
+		credentialPublicKey: text('credentialPublicKey', {
 			length: 255
 		}).notNull(),
-		counter: int('counter').notNull(),
-		credentialDeviceType: varchar('credentialDeviceType', {
+		counter: integer('counter').notNull(),
+		credentialDeviceType: text('credentialDeviceType', {
 			length: 255
 		}).notNull(),
 		credentialBackedUp: boolean('credentialBackedUp').notNull(),
-		transports: varchar('transports', { length: 255 })
+		transports: text('transports')
 	},
 	(authenticator) => [
 		primaryKey({
