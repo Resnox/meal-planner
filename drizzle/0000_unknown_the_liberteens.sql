@@ -1,51 +1,51 @@
 CREATE TABLE `account` (
-	`userId` varchar(255) NOT NULL,
-	`type` varchar(255) NOT NULL,
-	`provider` varchar(255) NOT NULL,
-	`providerAccountId` varchar(255) NOT NULL,
-	`refresh_token` varchar(255),
-	`access_token` varchar(255),
+	`userId` text NOT NULL,
+	`type` text NOT NULL,
+	`provider` text NOT NULL,
+	`providerAccountId` text NOT NULL,
+	`refresh_token` text,
+	`access_token` text,
 	`expires_at` int,
-	`token_type` varchar(255),
-	`scope` varchar(255),
+	`token_type` text,
+	`scope` text,
 	`id_token` varchar(2048),
-	`session_state` varchar(255),
+	`session_state` text,
 	CONSTRAINT `account_provider_providerAccountId_pk` PRIMARY KEY(`provider`,`providerAccountId`)
 );
 --> statement-breakpoint
 CREATE TABLE `authenticator` (
-	`credentialID` varchar(255) NOT NULL,
-	`userId` varchar(255) NOT NULL,
-	`providerAccountId` varchar(255) NOT NULL,
-	`credentialPublicKey` varchar(255) NOT NULL,
+	`credentialID` text NOT NULL,
+	`userId` text NOT NULL,
+	`providerAccountId` text NOT NULL,
+	`credentialPublicKey` text NOT NULL,
 	`counter` int NOT NULL,
-	`credentialDeviceType` varchar(255) NOT NULL,
+	`credentialDeviceType` text NOT NULL,
 	`credentialBackedUp` boolean NOT NULL,
-	`transports` varchar(255),
+	`transports` text,
 	CONSTRAINT `authenticator_userId_credentialID_pk` PRIMARY KEY(`userId`,`credentialID`),
 	CONSTRAINT `authenticator_credentialID_unique` UNIQUE(`credentialID`)
 );
 --> statement-breakpoint
 CREATE TABLE `session` (
-	`sessionToken` varchar(255) NOT NULL,
-	`userId` varchar(255) NOT NULL,
+	`sessionToken` text NOT NULL,
+	`userId` text NOT NULL,
 	`expires` timestamp NOT NULL,
 	CONSTRAINT `session_sessionToken` PRIMARY KEY(`sessionToken`)
 );
 --> statement-breakpoint
 CREATE TABLE `user` (
-	`id` varchar(255) NOT NULL,
-	`name` varchar(255),
-	`email` varchar(255),
+	`id` text NOT NULL,
+	`name` text,
+	`email` text,
 	`emailVerified` timestamp(3),
-	`image` varchar(255),
+	`image` text,
 	CONSTRAINT `user_id` PRIMARY KEY(`id`),
 	CONSTRAINT `user_email_unique` UNIQUE(`email`)
 );
 --> statement-breakpoint
 CREATE TABLE `verificationToken` (
-	`identifier` varchar(255) NOT NULL,
-	`token` varchar(255) NOT NULL,
+	`identifier` text NOT NULL,
+	`token` text NOT NULL,
 	`expires` timestamp NOT NULL,
 	CONSTRAINT `verificationToken_identifier_token_pk` PRIMARY KEY(`identifier`,`token`)
 );

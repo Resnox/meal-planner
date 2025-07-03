@@ -1,12 +1,9 @@
 <script lang="ts">
-	import '../app.css';
-	import Header from '$components/Header.svelte';
 	import type { Snippet } from 'svelte';
 
 	let { children }: { children: Snippet } = $props();
 </script>
 
-<div class="container mx-auto">
-	<Header />
+<div class="flex gap-1 items-center">
 	{@render children()}
 </div>

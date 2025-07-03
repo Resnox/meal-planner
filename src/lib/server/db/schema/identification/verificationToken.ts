@@ -1,10 +1,10 @@
-import { timestamp, mysqlTable, primaryKey, varchar } from 'drizzle-orm/mysql-core';
+import { timestamp, pgTable, primaryKey, text } from 'drizzle-orm/pg-core';
 
-export const verificationTokens = mysqlTable(
+export const verificationTokens = pgTable(
 	'verificationToken',
 	{
-		identifier: varchar('identifier', { length: 255 }).notNull(),
-		token: varchar('token', { length: 255 }).notNull(),
+		identifier: text('identifier').notNull(),
+		token: text('token').notNull(),
 		expires: timestamp('expires', { mode: 'date' }).notNull()
 	},
 	(verificationToken) => [

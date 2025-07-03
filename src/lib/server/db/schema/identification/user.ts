@@ -1,14 +1,14 @@
-import { timestamp, mysqlTable, varchar } from 'drizzle-orm/mysql-core';
+import { timestamp, pgTable, text } from 'drizzle-orm/pg-core';
 
-export const users = mysqlTable('user', {
-	id: varchar('id', { length: 255 })
+export const users = pgTable('user', {
+	id: text('id')
 		.primaryKey()
 		.$defaultFn(() => crypto.randomUUID()),
-	name: varchar('name', { length: 255 }),
-	email: varchar('email', { length: 255 }).unique(),
+	name: text('name'),
+	email: text('email').unique(),
 	emailVerified: timestamp('emailVerified', {
 		mode: 'date',
-		fsp: 3
+		precision: 3
 	}),
-	image: varchar('image', { length: 255 })
+	image: text('image')
 });

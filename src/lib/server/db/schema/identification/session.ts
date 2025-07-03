@@ -1,9 +1,9 @@
-import { timestamp, mysqlTable, varchar } from 'drizzle-orm/mysql-core';
+import { timestamp, pgTable, text } from 'drizzle-orm/pg-core';
 import { users } from './user';
 
-export const sessions = mysqlTable('session', {
-	sessionToken: varchar('sessionToken', { length: 255 }).primaryKey(),
-	userId: varchar('userId', { length: 255 })
+export const sessions = pgTable('session', {
+	sessionToken: text('sessionToken').primaryKey(),
+	userId: text('userId')
 		.notNull()
 		.references(() => users.id, { onDelete: 'cascade' }),
 	expires: timestamp('expires', { mode: 'date' }).notNull()
