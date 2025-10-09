@@ -9,20 +9,20 @@ import { recipes } from './recipe';
 import { products } from './product';
 
 
-export const recipeProducts = pgTable('recipe_products', {
+export const recipeIngredient = pgTable('recipe_ingredient', {
 	recipeId: bigint('recipe_id', {mode: 'number'}).notNull()
 		.references(() => recipes.id, { onDelete: 'cascade' }),
 	productId: bigint('product_id', {mode: 'number'}).notNull()
 		.references(() => products.id, { onDelete: 'cascade' }),
 	quantity: integer('quantity').notNull(),
-}, (recipe_products) => [
-	primaryKey({ columns: [recipe_products.recipeId, recipe_products.productId] }),
+}, (recipe_ingredient) => [
+	primaryKey({ columns: [recipe_ingredient.recipeId, recipe_ingredient.productId] }),
 ]);
 
 export const recipeRelations = relations(recipes, ({ many }) => ({
-	recipeProducts: many(recipeProducts),
+	recipeIngredient: many(recipeIngredient),
 }));
 
 export const productsRelations = relations(products, ({ many }) => ({
-	recipeProducts: many(recipeProducts),
+	recipeIngredient: many(recipeIngredient),
 }));

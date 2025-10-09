@@ -17,14 +17,7 @@
 	let { data } = $props();
 
 	let products: Product[] = $state(data.products);
-	let tmpProduct: Product = $state({id: undefined, name: ''});
-
-	console.log(data.products);
-	async function createProduct(product: Product) {
-		const newProducts: Product[] = await fetch(`/api/products`, { method: 'POST', body: JSON.stringify(product) }).then(response => response.json());
-		products = [...products, ...newProducts];
-		tmpProduct = {id: undefined, name: ''};
-	}
+	let tmpProduct: Product = $state({id: undefined, name: '', unit: undefined});
 </script>
 
 <Breadcrumb>

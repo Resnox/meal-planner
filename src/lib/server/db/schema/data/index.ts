@@ -1,11 +1,11 @@
 import { products } from './product';
 import { recipes } from './recipe';
-import { recipeProducts, recipeRelations, productsRelations } from './products_recipes';
+import { recipeIngredient, recipeRelations, productsRelations } from './recipes_ingredient';
 
 export default {
 	products,
 	recipes,
 	recipeRelations,
 	productsRelations,
-	recipeProducts
+	recipeProducts: recipeIngredient
 };
